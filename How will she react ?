@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      background-color: #0a192f;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-weight: bold;
+      margin-top: 50px;
+      font-size: 3vw;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 25px;
+      margin: 15px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: green;
+    }
+
+    #noBtn {
+      background-color: red;
+      position: absolute;
+      transition: all 0.4s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Will you be my everything for the lifetime</h1>
+
+<button id="yesBtn">Yes 💚</button>
+<button id="noBtn">No ❤️</button>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+let yesSize = 18;
+let noSize = 18;
+let index = 0;
+
+const noTexts = [
+  "No ❤️",
+  "Are you sure?",
+  "Are you positive?",
+  "Think it again...",
+  "Don't do this to me 😭"
+];
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+noBtn.addEventListener("click", () => {
+  yesSize += 8;
+  yesBtn.style.fontSize = yesSize + "px";
+
+  noSize -= 2;
+  if (noSize > 8) {
+    noBtn.style.fontSize = noSize + "px";
+  }
+
+  if (index < noTexts.length - 1) {
+    index++;
+    noBtn.innerText = noTexts[index];
+  }
+});
+
+yesBtn.addEventListener("click", () => {
+  alert("Yayyyyy 💖 I knew it!!!");
+});
+</script>
+
+</body>
+</html>
