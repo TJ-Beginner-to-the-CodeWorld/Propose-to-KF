@@ -58,32 +58,41 @@ const noTexts = [
   "Are you sure?",
   "Are you positive?",
   "Think it again...",
-  "Don't do this to me 😭"
+  "Last chance 😭"
 ];
 
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
-
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-});
-
+// CLICK event
 noBtn.addEventListener("click", () => {
+  // YES gets bigger
   yesSize += 8;
   yesBtn.style.fontSize = yesSize + "px";
 
+  // NO gets smaller
   noSize -= 2;
   if (noSize > 8) {
     noBtn.style.fontSize = noSize + "px";
   }
 
+  // Change text
   if (index < noTexts.length - 1) {
     index++;
     noBtn.innerText = noTexts[index];
   }
 });
 
+// HOVER event (ONLY at last stage)
+noBtn.addEventListener("mouseover", () => {
+  if (index === 4) {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+});
+
+// YES click
 yesBtn.addEventListener("click", () => {
   alert("Yayyyyy 💖 I knew it!!!");
 });
